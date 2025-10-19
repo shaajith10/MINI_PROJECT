@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
@@ -36,8 +36,10 @@ import {
   CheckCircle as CheckCircleIcon,
   Schedule as ScheduleIcon
 } from '@mui/icons-material';
-
+import { Client } from "@gradio/client";
 const StudentDashboard = ({ user }) => {
+  const [rewardPoints, setRewardPoints] = useState();
+  const [rollNo, setRollNo] = useState('');
   const [recentMessages] = useState([
     { id: 1, sender: 'Prof. Davis', message: 'Assignment deadline extended to Friday', time: '2 min ago', room: 'Computer Science' },
     { id: 2, sender: 'Sarah', message: 'Anyone free for study group?', time: '15 min ago', room: 'General' },
@@ -87,6 +89,16 @@ const StudentDashboard = ({ user }) => {
         return 'default';
     }
   };
+  const onLoad = async () => {
+    const client = await Client.connect("PraneshJs/RewardPointsSite");
+    const result = await client.predict("/search_student_1", {
+      roll_no: rollNo,
+    });
+
+    setRewardPoints(result.data);
+  }
+ 
+
 
   return (
     <Box>
@@ -310,6 +322,28 @@ const StudentDashboard = ({ user }) => {
           </Card>
         </Grid>
       </Grid>
+
+
+
+      <div className="form-group">
+        <label className="form-label">
+          Enter your roll number to get reward points
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={rollNo}
+          onChange={(event) => setRollNo(event.target.value)}
+          className="form-input"
+          placeholder="Enter your Roll Number"
+          required
+        />
+        <button onClick={() => onLoad()}>Get Details</button>
+      </div>
+
+      <p>
+        {rewardPoints}
+      </p>
 
       {/* Floating Action Button */}
       <Fab

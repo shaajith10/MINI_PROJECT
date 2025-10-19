@@ -52,7 +52,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "@gradio/client": "^2.0.0-dev.0"
+  }
 }
-
-
