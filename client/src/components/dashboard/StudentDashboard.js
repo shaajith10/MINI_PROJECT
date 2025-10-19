@@ -22,6 +22,8 @@ import {
   LinearProgress,
   Fab
 } from '@mui/material';
+import { motion } from 'framer-motion';
+
 import {
   Chat as ChatIcon,
   Assignment as AssignmentIcon,
@@ -338,8 +340,20 @@ const StudentDashboard = ({ user }) => {
           placeholder="Enter your Roll Number"
           required
         />
-        <button onClick={() => onLoad()}>Get Details</button>
+
+
+         <motion.button
+            type="submit"
+            className="auth-button"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => onLoad()}
+          >
+            Get Details
+          </motion.button>
       </div>
+      {rewardPoints &&(
+
       <div
         style={{
           backgroundColor: "#1e1e1e",
@@ -354,6 +368,8 @@ const StudentDashboard = ({ user }) => {
       >
         {rewardPoints}
       </div>
+      )}
+
       {/* Floating Action Button */}
       <Fab
         color="primary"
