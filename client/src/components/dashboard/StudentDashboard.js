@@ -327,10 +327,17 @@ const StudentDashboard = ({ user }) => {
 
 
 
-      <div className="form-group">
-        <label className="form-label">
-          Enter your roll number to get reward points
-        </label>
+      <div className="form-group" style={{marginTop:"30px"}}>
+       <label
+  className="form-label"
+  style={{
+    fontWeight: "bold",
+    color: "#222",
+    fontSize: "20px",
+  }}
+>
+  Enter your roll number to get reward points
+</label>
         <input
           type="email"
           name="email"
