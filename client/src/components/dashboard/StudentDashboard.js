@@ -340,11 +340,19 @@ const StudentDashboard = ({ user }) => {
         />
         <button onClick={() => onLoad()}>Get Details</button>
       </div>
-
-      <p>
-        {rewardPoints}
-      </p>
-
+<div
+  style={{
+    backgroundColor: "#1e1e1e",
+    color: "#00ff88",
+    fontFamily: "Courier New, monospace",
+    padding: "20px",
+    borderRadius: "10px",
+    whiteSpace: "pre-wrap",
+    overflowX: "auto",
+  }}
+>
+  {rewardPoints}
+</div>
       {/* Floating Action Button */}
       <Fab
         color="primary"
