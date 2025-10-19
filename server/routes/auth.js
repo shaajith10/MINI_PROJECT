@@ -15,6 +15,7 @@ router.post('/register', [
   body('rollNumber').notEmpty().withMessage('Roll number is required')
 ], async (req, res) => {
   try {
+    console.log(11111)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });

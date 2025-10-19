@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3002",
     methods: ["GET", "POST"]
   }
 });
@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/departmental-chat', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://shaajith10_db_user:1hZrfT0XcNZKbCZY@shaajith.b1wg8qq.mongodb.net/departmental-chat', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
