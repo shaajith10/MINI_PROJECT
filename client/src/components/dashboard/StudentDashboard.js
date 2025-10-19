@@ -349,6 +349,7 @@ const StudentDashboard = ({ user }) => {
           borderRadius: "10px",
           whiteSpace: "pre-wrap",
           overflowX: "auto",
+          textAlign: "left", 
         }}
       >
         {rewardPoints}
